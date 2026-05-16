@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>赛特勒斯磁悬浮应用中心 - 电子名片</title>
+<meta property="og:title" content="赛特勒斯磁悬浮应用中心">
+<meta property="og:description" content="专业生产磁悬浮鼓风机、磁悬浮空压机、磁悬浮真空泵，无摩擦运行，高效节能">
+<meta property="og:type" content="website">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #f5f6f7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .card {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+  .card-header {
+    background: linear-gradient(135deg, #1a3a6b, #2c5282);
+    padding: 24px 20px 20px;
+    color: #fff;
+    position: relative;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .logo-box {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d1d5db;
+    padding: 0;
+    overflow: hidden;
+  }
+  .logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: translateX(-4px);
+  }
+  .company-info h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cert-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .company-info .en-name {
+    font-size: 11px;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+  .company-info .tags {
+    font-size: 10px;
+    opacity: 0.75;
+    margin-top: 4px;
+  }
+  .person-section {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .person-info h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .person-info .title {
+    font-size: 13px;
+    color: #666;
+  }
+  .contact-section {
+    padding: 16px 20px;
+    background: #fafbfc;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .contact-item:last-child {
+    border-bottom: none;
+  }
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: #1a3a6b;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .contact-text {
+    flex: 1;
+  }
+  .contact-text .label {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 2px;
+  }
+  .contact-text .value {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+  }
+  .contact-text a {
+    color: #1a3a6b;
+    text-decoration: none;
+  }
+  .product-section {
+    padding: 20px;
+    background: #fff;
+  }
+  .product-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3a6b;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #1a3a6b;
+  }
+  .product-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .product-card {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #1a3a6b;
+  }
+  .product-card:nth-child(5) {
+    grid-column: span 2;
+  }
+  .product-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #1a3a6b, #2c5282);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    color: #fff;
+    font-size: 22px;
+  }
+  .product-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .product-desc {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+  }
+  .tech-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a3a6b, #2c5282);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header">
+    <div class="logo-area">
+      <div class="logo-box">
+        <svg viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#1a3a6b" stroke-width="2"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#2c5282" stroke-width="2"/>
+          <circle cx="50" cy="50" r="15" fill="#1a3a6b"/>
+          <text x="50" y="55" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Z</text>
+        </svg>
+      </div>
+      <div class="company-info">
+        <h1>赛特勒斯磁悬浮应用中心 <span class="cert-badge">认证企业</span></h1>
+        <div class="en-name">ZEITLOS轴承科技（北京）有限公司</div>
+        <div class="tags">专精特新 | ISO9001认证</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-section">
+    <div class="avatar">赵</div>
+    <div class="person-info">
+      <h2>赵新杨</h2>
+      <div class="title">磁悬浮技术应用中心 | 技术工程师</div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <div class="contact-item">
+      <div class="contact-icon">📱</div>
+      <div class="contact-text">
+        <div class="label">电话</div>
+        <div class="value"><a href="tel:18832125044">18832125044</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📧</div>
+      <div class="contact-text">
+        <div class="label">邮箱</div>
+        <div class="value"><a href="mailto:zhaoxinyang@zeitlos.com">zhaoxinyang@zeitlos.com</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">💬</div>
+      <div class="contact-text">
+        <div class="label">微信</div>
+        <div class="value">ZXY18832125044</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div class="contact-text">
+        <div class="label">地址</div>
+        <div class="value">北京市昌平区科技园区</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-section">
+    <div class="product-title">磁悬浮技术应用专家</div>
+    <div class="product-cards">
+      <div class="product-card">
+        <div class="product-icon">🌀</div>
+        <div class="product-name">磁悬浮鼓风机</div>
+        <div class="product-desc">高效节能<br>无油运行</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">⚙️</div>
+        <div class="product-name">磁悬浮空压机</div>
+        <div class="product-desc">智能控制<br>稳定可靠</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🔧</div>
+        <div class="product-name">磁悬浮真空泵</div>
+        <div class="product-desc">静音无摩擦<br>超长寿命</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">📊</div>
+        <div class="product-name">节能改造</div>
+        <div class="product-desc">系统优化<br>能耗降低40%+</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🎯</div>
+        <div class="product-name">核心优势</div>
+        <div class="product-desc">
+          <span class="tech-badge">磁悬浮技术</span>
+          <span class="tech-badge">静音无摩擦</span>
+          <span class="tech-badge">智能运维</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
