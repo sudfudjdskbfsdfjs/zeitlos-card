@@ -38,6 +38,11 @@
     gap: 14px;
     margin-bottom: 16px;
   }
+  .company-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
   .logo-box {
     width: 80px;
     height: 80px;
@@ -92,13 +97,8 @@
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 28px;
-    font-weight: 600;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.3);
     flex-shrink: 0;
   }
   .person-info h2 {
@@ -226,11 +226,9 @@
 <div class="card">
   <div class="card-header">
     <div class="logo-area">
-      <div class="logo-box">
-        <img src="logo.jpg" alt="ZEITLOS">
-      </div>
+      <img src="company-logo.png" alt="ZEITLOS" class="company-logo">
       <div class="company-info">
-        <h1>赛特勒斯磁悬浮应用中心 <span class="cert-badge">认证企业</span></h1>
+        <h1>赛特勒斯磁悬浮应用中心</h1>
         <div class="en-name">ZEITLOS轴承科技（北京）有限公司</div>
         <div class="tags">专精特新 | ISO9001认证</div>
       </div>
@@ -238,7 +236,6 @@
   </div>
 
   <div class="person-section">
-    <img src="avatar.jpg" alt="赵新杨" class="avatar">
     <div class="person-info">
       <h2>赵新杨</h2>
       <div class="title">磁悬浮技术应用中心 | ？</div>
